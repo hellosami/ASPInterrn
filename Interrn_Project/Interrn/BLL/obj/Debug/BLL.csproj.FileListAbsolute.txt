@@ -10,3 +10,5 @@ D:\Interrn\ASPInterrn\Interrn_Project\Interrn\BLL\obj\Debug\BLL.csproj.CoreCompi
 D:\Interrn\ASPInterrn\Interrn_Project\Interrn\BLL\obj\Debug\BLL.csproj.CopyComplete
 D:\Interrn\ASPInterrn\Interrn_Project\Interrn\BLL\obj\Debug\BLL.dll
 D:\Interrn\ASPInterrn\Interrn_Project\Interrn\BLL\obj\Debug\BLL.pdb
+D:\Interrn\ASPInterrn\Interrn_Project\Interrn\BLL\bin\Debug\AutoMapper.dll
+D:\Interrn\ASPInterrn\Interrn_Project\Interrn\BLL\bin\Debug\AutoMapper.xml

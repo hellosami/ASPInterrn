@@ -67,3 +67,10 @@ D:\Interrn\ASPInterrn\Interrn_Project\Interrn\Interrn\obj\Debug\Interrn.csproj.C
 D:\Interrn\ASPInterrn\Interrn_Project\Interrn\Interrn\obj\Debug\Interrn.csproj.CopyComplete
 D:\Interrn\ASPInterrn\Interrn_Project\Interrn\Interrn\obj\Debug\Interrn.dll
 D:\Interrn\ASPInterrn\Interrn_Project\Interrn\Interrn\obj\Debug\Interrn.pdb
+D:\Interrn\ASPInterrn\Interrn_Project\Interrn\Interrn\bin\DAL.dll
+D:\Interrn\ASPInterrn\Interrn_Project\Interrn\Interrn\bin\AutoMapper.dll
+D:\Interrn\ASPInterrn\Interrn_Project\Interrn\Interrn\bin\EntityFramework.dll
+D:\Interrn\ASPInterrn\Interrn_Project\Interrn\Interrn\bin\DAL.pdb
+D:\Interrn\ASPInterrn\Interrn_Project\Interrn\Interrn\bin\DAL.dll.config
+D:\Interrn\ASPInterrn\Interrn_Project\Interrn\Interrn\bin\AutoMapper.xml
+D:\Interrn\ASPInterrn\Interrn_Project\Interrn\Interrn\bin\EntityFramework.xml
