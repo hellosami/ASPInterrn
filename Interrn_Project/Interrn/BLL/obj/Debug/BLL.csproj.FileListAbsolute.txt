@@ -1,0 +1,12 @@
+D:\Interrn\ASPInterrn\Interrn_Project\Interrn\BLL\bin\Debug\BLL.dll
+D:\Interrn\ASPInterrn\Interrn_Project\Interrn\BLL\bin\Debug\BLL.pdb
+D:\Interrn\ASPInterrn\Interrn_Project\Interrn\BLL\bin\Debug\DAL.dll
+D:\Interrn\ASPInterrn\Interrn_Project\Interrn\BLL\bin\Debug\EntityFramework.dll
+D:\Interrn\ASPInterrn\Interrn_Project\Interrn\BLL\bin\Debug\DAL.pdb
+D:\Interrn\ASPInterrn\Interrn_Project\Interrn\BLL\bin\Debug\DAL.dll.config
+D:\Interrn\ASPInterrn\Interrn_Project\Interrn\BLL\bin\Debug\EntityFramework.xml
+D:\Interrn\ASPInterrn\Interrn_Project\Interrn\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+D:\Interrn\ASPInterrn\Interrn_Project\Interrn\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\Interrn\ASPInterrn\Interrn_Project\Interrn\BLL\obj\Debug\BLL.csproj.CopyComplete
+D:\Interrn\ASPInterrn\Interrn_Project\Interrn\BLL\obj\Debug\BLL.dll
+D:\Interrn\ASPInterrn\Interrn_Project\Interrn\BLL\obj\Debug\BLL.pdb

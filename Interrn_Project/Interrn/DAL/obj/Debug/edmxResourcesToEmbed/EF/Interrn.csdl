@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="InterrnModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AppliedJob">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Pid" Type="Int32" Nullable="false" />
+    <Property Name="Sid" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="JobStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Post" Relationship="Self.FK_AppliedJobs_Posts" FromRole="AppliedJobs" ToRole="Posts" />
+    <NavigationProperty Name="StudentProfile" Relationship="Self.FK_AppliedJobs_StudentProfiles" FromRole="AppliedJobs" ToRole="StudentProfiles" />
+  </EntityType>
+  <EntityType Name="CompanyProfile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Website" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Posts" Relationship="Self.FK_Posts_CompanyProfiles" FromRole="CompanyProfiles" ToRole="Posts" />
+  </EntityType>
+  <EntityType Name="JobSave">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Pid" Type="Int32" Nullable="false" />
+    <Property Name="Sid" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Post" Relationship="Self.FK_JobSaves_Posts" FromRole="JobSaves" ToRole="Posts" />
+    <NavigationProperty Name="StudentProfile" Relationship="Self.FK_JobSaves_StudentProfiles" FromRole="JobSaves" ToRole="StudentProfiles" />
+  </EntityType>
+  <EntityType Name="Post">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyId" Type="Int32" Nullable="false" />
+    <Property Name="Titel" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="JobDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Program" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Skills" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DeadLine" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="AppliedJobs" Relationship="Self.FK_AppliedJobs_Posts" FromRole="Posts" ToRole="AppliedJobs" />
+    <NavigationProperty Name="CompanyProfile" Relationship="Self.FK_Posts_CompanyProfiles" FromRole="Posts" ToRole="CompanyProfiles" />
+    <NavigationProperty Name="JobSaves" Relationship="Self.FK_JobSaves_Posts" FromRole="Posts" ToRole="JobSaves" />
+  </EntityType>
+  <EntityType Name="StudentProfile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Program" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Skills" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Linkedin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Github" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AppliedJobs" Relationship="Self.FK_AppliedJobs_StudentProfiles" FromRole="StudentProfiles" ToRole="AppliedJobs" />
+    <NavigationProperty Name="JobSaves" Relationship="Self.FK_JobSaves_StudentProfiles" FromRole="StudentProfiles" ToRole="JobSaves" />
+  </EntityType>
+  <Association Name="FK_AppliedJobs_Posts">
+    <End Role="Posts" Type="Self.Post" Multiplicity="1" />
+    <End Role="AppliedJobs" Type="Self.AppliedJob" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Posts">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AppliedJobs">
+        <PropertyRef Name="Pid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppliedJobs_StudentProfiles">
+    <End Role="StudentProfiles" Type="Self.StudentProfile" Multiplicity="1" />
+    <End Role="AppliedJobs" Type="Self.AppliedJob" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StudentProfiles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AppliedJobs">
+        <PropertyRef Name="Sid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Posts_CompanyProfiles">
+    <End Role="CompanyProfiles" Type="Self.CompanyProfile" Multiplicity="1" />
+    <End Role="Posts" Type="Self.Post" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CompanyProfiles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Posts">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JobSaves_Posts">
+    <End Role="Posts" Type="Self.Post" Multiplicity="1" />
+    <End Role="JobSaves" Type="Self.JobSave" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Posts">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="JobSaves">
+        <PropertyRef Name="Pid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JobSaves_StudentProfiles">
+    <End Role="StudentProfiles" Type="Self.StudentProfile" Multiplicity="1" />
+    <End Role="JobSaves" Type="Self.JobSave" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StudentProfiles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="JobSaves">
+        <PropertyRef Name="Sid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="InterrnEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AppliedJobs" EntityType="Self.AppliedJob" />
+    <EntitySet Name="CompanyProfiles" EntityType="Self.CompanyProfile" />
+    <EntitySet Name="JobSaves" EntityType="Self.JobSave" />
+    <EntitySet Name="Posts" EntityType="Self.Post" />
+    <EntitySet Name="StudentProfiles" EntityType="Self.StudentProfile" />
+    <AssociationSet Name="FK_AppliedJobs_Posts" Association="Self.FK_AppliedJobs_Posts">
+      <End Role="Posts" EntitySet="Posts" />
+      <End Role="AppliedJobs" EntitySet="AppliedJobs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppliedJobs_StudentProfiles" Association="Self.FK_AppliedJobs_StudentProfiles">
+      <End Role="StudentProfiles" EntitySet="StudentProfiles" />
+      <End Role="AppliedJobs" EntitySet="AppliedJobs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Posts_CompanyProfiles" Association="Self.FK_Posts_CompanyProfiles">
+      <End Role="CompanyProfiles" EntitySet="CompanyProfiles" />
+      <End Role="Posts" EntitySet="Posts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JobSaves_Posts" Association="Self.FK_JobSaves_Posts">
+      <End Role="Posts" EntitySet="Posts" />
+      <End Role="JobSaves" EntitySet="JobSaves" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JobSaves_StudentProfiles" Association="Self.FK_JobSaves_StudentProfiles">
+      <End Role="StudentProfiles" EntitySet="StudentProfiles" />
+      <End Role="JobSaves" EntitySet="JobSaves" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
