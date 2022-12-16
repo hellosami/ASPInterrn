@@ -15,16 +15,15 @@ namespace DAL.Repo
         {
             db = new InterrnEntities();
         }
-        public StudentProfile Add(StudentProfile obj)
+        public bool Add(StudentProfile obj)
         {
             db.StudentProfiles.Add(obj);
-            db.SaveChanges();
-            return obj;
+           return db.SaveChanges()> 0;
+            
         }
 
         public bool Delete(int id)
         {
-            
             db.StudentProfiles.Remove(db.StudentProfiles.Find(id));
             return db.SaveChanges() > 0;
         }
@@ -41,14 +40,9 @@ namespace DAL.Repo
 
         public bool Update(StudentProfile obj)
         {
-            var ext = db.StudentProfiles.Find(obj.Id);  
+            var ext = db.StudentProfiles.Find(obj.Id);
             db.Entry(ext).CurrentValues.SetValues(obj);
             return db.SaveChanges() > 0;
-        }
-
-        bool IRepo<StudentProfile, int, bool>.Add(StudentProfile obj)
-        {
-            throw new NotImplementedException();
         }
     }
 }

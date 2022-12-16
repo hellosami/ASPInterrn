@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="InterrnModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="InterrnModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AppliedJobs">
           <Key>
             <PropertyRef Name="Id" />
@@ -39,12 +39,12 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CompanyId" Type="int" Nullable="false" />
-          <Property Name="Titel" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="JobDescription" Type="varchar" MaxLength="500" Nullable="false" />
-          <Property Name="Location" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Program" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Skills" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="DeadLine" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Titel" Type="varchar" MaxLength="100" />
+          <Property Name="JobDescription" Type="varchar" MaxLength="500" />
+          <Property Name="Location" Type="varchar" MaxLength="50" />
+          <Property Name="Program" Type="varchar" MaxLength="50" />
+          <Property Name="Skills" Type="varchar" MaxLength="100" />
+          <Property Name="DeadLine" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="StudentProfiles">
           <Key>
@@ -147,8 +147,7 @@
             <End Role="Posts" EntitySet="Posts" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="InterrnModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -191,12 +190,12 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CompanyId" Type="Int32" Nullable="false" />
-          <Property Name="Titel" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="JobDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Program" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Skills" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DeadLine" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Titel" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="JobDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Program" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Skills" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DeadLine" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="AppliedJobs" Relationship="Self.FK_AppliedJobs_Posts" FromRole="Posts" ToRole="AppliedJobs" />
           <NavigationProperty Name="CompanyProfile" Relationship="Self.FK_Posts_CompanyProfiles" FromRole="Posts" ToRole="CompanyProfiles" />
           <NavigationProperty Name="JobSaves" Relationship="Self.FK_JobSaves_Posts" FromRole="Posts" ToRole="JobSaves" />

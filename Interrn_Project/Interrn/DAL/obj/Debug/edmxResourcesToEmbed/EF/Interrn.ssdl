@@ -34,12 +34,12 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CompanyId" Type="int" Nullable="false" />
-    <Property Name="Titel" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="JobDescription" Type="varchar" MaxLength="500" Nullable="false" />
-    <Property Name="Location" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Program" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Skills" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="DeadLine" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Titel" Type="varchar" MaxLength="100" />
+    <Property Name="JobDescription" Type="varchar" MaxLength="500" />
+    <Property Name="Location" Type="varchar" MaxLength="50" />
+    <Property Name="Program" Type="varchar" MaxLength="50" />
+    <Property Name="Skills" Type="varchar" MaxLength="100" />
+    <Property Name="DeadLine" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="StudentProfiles">
     <Key>
