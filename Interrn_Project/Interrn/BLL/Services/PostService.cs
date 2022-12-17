@@ -7,6 +7,7 @@ using AutoMapper;
 using BLL.DTOs;
 using DAL.EF;
 using DAL;
+using System.Text.RegularExpressions;
 
 namespace BLL.Services
 {
@@ -43,6 +44,19 @@ namespace BLL.Services
             var dbpost = mapper.Map<Post>(post);
             var rt = DataAccessFactory.PostDataAccess().Add(dbpost);
             return rt;
+        }
+
+        public static bool Update(PostDTO obj)
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<PostDTO, Post>());
+            var mapper = new Mapper(config);
+            var rtdata = mapper.Map<Post>(obj);
+            return DataAccessFactory.PostDataAccess().Update(rtdata);
+        }
+
+        public static bool Delete(int id)
+        {
+            return DataAccessFactory.PostDataAccess().Delete(id);
         }
     }
 }

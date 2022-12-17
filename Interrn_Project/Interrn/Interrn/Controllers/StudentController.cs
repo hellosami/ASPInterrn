@@ -37,6 +37,37 @@ namespace Interrn.Controllers
                 var data = StudentService.Add(grp);
                 return Request.CreateResponse(HttpStatusCode.OK, data);
             }
+
+        [Route("api/student/update")]
+        [HttpPost]
+        public HttpResponseMessage Update(StudentDTO student)
+        {
+            bool response = StudentService.Update(student);
+            if (response)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, new { msg = "Updated", data = student });
+
+            }
+            return Request.CreateResponse(HttpStatusCode.InternalServerError);
         }
+
+        [Route("api/student/delete/{id}")]
+        [HttpGet]
+        public HttpResponseMessage Delete(int id)
+        {
+
+            var data = StudentService.Delete(id);
+            return Request.CreateResponse(HttpStatusCode.OK, data);
+            /* bool response = StudentService.Delete(id);
+             if (response)
+             {
+                 return Request.CreateResponse(HttpStatusCode.OK, new { msg = "Deleted", data = id });
+
+             }
+             return Request.CreateResponse(HttpStatusCode.InternalServerError);
+            */
+        }
+
+    }
     }
 

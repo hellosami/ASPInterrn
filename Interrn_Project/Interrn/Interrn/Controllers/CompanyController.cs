@@ -34,5 +34,30 @@ namespace Interrn.Controllers
             var data = CompanyService.Add(grp);
             return Request.CreateResponse(HttpStatusCode.OK, data);
         }
+        [Route("api/company/update")]
+        [HttpPost]
+        public HttpResponseMessage Update(CompanyDTO company)
+        {
+            bool response = CompanyService.Update(company);
+            if (response)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, new { msg = "Updated", data = company });
+
+            }
+            return Request.CreateResponse(HttpStatusCode.InternalServerError);
+        }
+
+        [Route("api/company/delete")]
+        [HttpPost]
+        public HttpResponseMessage Delete(int id)
+        {
+            bool response = CompanyService.Delete(id);
+            if (response)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, new { msg = "Deleted", data = id });
+
+            }
+            return Request.CreateResponse(HttpStatusCode.InternalServerError);
+        }
     }
 }

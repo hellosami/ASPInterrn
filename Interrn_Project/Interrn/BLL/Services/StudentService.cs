@@ -45,5 +45,18 @@ namespace BLL.Services
             var rt = DataAccessFactory.StudentDataAccess().Add(dbstudent);
             return rt;
         }
+
+        public static bool Update(StudentDTO obj)
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<StudentDTO, StudentProfile>());
+            var mapper = new Mapper(config);
+            var rtdata = mapper.Map<StudentProfile>(obj);
+            return DataAccessFactory.StudentDataAccess().Update(rtdata);
+        }
+
+        public static bool Delete(int id)
+        {
+            return DataAccessFactory.StudentDataAccess().Delete(id);
+        }
     }
 }

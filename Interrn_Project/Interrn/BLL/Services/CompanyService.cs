@@ -44,6 +44,19 @@ namespace BLL.Services
             var rt = DataAccessFactory.CompanyDataAccess().Add(dbcompany);
             return rt;
         }
+
+        public static bool Update(CompanyDTO obj)
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<CompanyDTO, CompanyProfile>());
+            var mapper = new Mapper(config);
+            var rtdata = mapper.Map<CompanyProfile>(obj);
+            return DataAccessFactory.CompanyDataAccess().Update(rtdata);
+        }
+
+        public static bool Delete(int id)
+        {
+            return DataAccessFactory.CompanyDataAccess().Delete(id);
+        }
     }
 }
 

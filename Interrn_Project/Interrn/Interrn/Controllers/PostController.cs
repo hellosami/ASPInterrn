@@ -35,5 +35,31 @@ namespace Interrn.Controllers
             var data = PostService.Add(grp);
             return Request.CreateResponse(HttpStatusCode.OK, data);
         }
+
+        [Route("api/post/update")]
+        [HttpPost]
+        public HttpResponseMessage Update(PostDTO post)
+        {
+            bool response = PostService.Update(post);
+            if (response)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, new { msg = "Updated", data = post });
+
+            }
+            return Request.CreateResponse(HttpStatusCode.InternalServerError);
+        }
+
+        [Route("api/post/delete")]
+        [HttpPost]
+        public HttpResponseMessage Delete(int id)
+        {
+            bool response = PostService.Delete(id);
+            if (response)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, new { msg = "Deleted", data = id });
+
+            }
+            return Request.CreateResponse(HttpStatusCode.InternalServerError);
+        }
     }
 }

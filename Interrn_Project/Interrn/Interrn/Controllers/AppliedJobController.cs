@@ -34,5 +34,31 @@ namespace Interrn.Controllers
             var data = AppliedJobService.Add(apjob);
             return Request.CreateResponse(HttpStatusCode.OK, data);
         }
+        /*  [Route("api/appliedjobs/update")]
+          [HttpPost]
+          public HttpResponseMessage Update(AppliedJobDTO apjob)
+          {
+              bool response = AppliedJobService.Update(apjob);
+              if (response)
+              {
+                  return Request.CreateResponse(HttpStatusCode.OK, new { msg = "Updated", data = apjob });
+
+              }
+              return Request.CreateResponse(HttpStatusCode.InternalServerError);
+          }
+
+          [Route("api/appliedjobs/delete")]
+          [HttpPost]
+          public HttpResponseMessage Delete(int id)
+          {
+              bool response = AppliedJobService.Delete(id);
+              if (response)
+              {
+                  return Request.CreateResponse(HttpStatusCode.OK, new { msg = "Deleted", data = id });
+
+              }
+              return Request.CreateResponse(HttpStatusCode.InternalServerError);
+          }
+        */
     }
 }

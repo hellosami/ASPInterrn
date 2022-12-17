@@ -44,5 +44,17 @@ namespace BLL.Services
             var rt = DataAccessFactory.JobSaveDataAccess().Add(dbjobSave);
             return rt;
         }
+        /* public static bool Update(JobSaveDTO obj)
+         {
+             var config = new MapperConfiguration(cfg => cfg.CreateMap<JobSaveDTO, JobSave>());
+             var mapper = new Mapper(config);
+             var rtdata = mapper.Map<JobSave>(obj);
+             return DataAccessFactory.JobSaveDataAccess().Update(rtdata);
+         }
+
+         public static bool Delete(int id)
+         {
+             return DataAccessFactory.JobSaveDataAccess().Delete(id);
+         }*/
     }
 }
